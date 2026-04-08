@@ -124,7 +124,7 @@ def create_order(data: OrderCreate, db: Session = Depends(get_db)):
         status='pending',
     )
     db.add(order)
-    db.flush()  # order.id ni olish uchun
+    db.flush()
 
     for oi in order_items:
         oi.order_id = order.id
